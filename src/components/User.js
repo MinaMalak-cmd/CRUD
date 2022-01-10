@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
 import { useParams, useNavigate } from "react-router-dom";
 
-const User = props => {
+const User = () => {
   const initialUserState = {
     id: null,
     name: "",
