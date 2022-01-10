@@ -1,11 +1,10 @@
 import './App.css';
-// import { Routes, Route, Link } from "react-router-dom";
 import AddUser from "./components/AddUser";
 import User from "./components/User";
 import UsersList from "./components/UsersList";
+import UserDetail from "./components/UserDetail";
 import {
   Route,
-  BrowserRouter as Router,
   Routes,Link
 } from "react-router-dom";
 function App() {
@@ -16,34 +15,27 @@ function App() {
         Mina
       </a>
       <div className="navbar-nav mr-auto">
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link to={"/Users"} className="nav-link">
             Users
           </Link>
-        </li>
-        <li className="nav-item">
+        </li> */}
+        {/* <li className="nav-item">
           <Link to={"/add"} className="nav-link">
             Add
           </Link>
-        </li>
+        </li> */}
       </div>
     </nav>
 
     <div className="container mt-3">
-      {/* <Routes>
-        <Route exact path={["/", "/Users"]} >
-           <UsersList />
-        </Route>
-         <Route exact path="/add" children={<AddUser />} />
-        <Route path="/Users/:id" children={<User />} /> 
-      </Routes> */}
-       {/* <Router> */}
           <Routes>
             <Route exact path="/" element={<UsersList />} />
+            <Route exact path="/Users" element={<UsersList />} />
             <Route path="/add" element={<AddUser />} />  
-            <Route path="/Users/:id" element={<User />} />       
+            {/* <Route path="/Users/:id" element={<User />} />        */}
+            <Route path="/Users/:id" element={<UserDetail />} />       
           </Routes>
-        {/* </Router> */}
     </div>
   </div>
   );

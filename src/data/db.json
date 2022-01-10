@@ -1,18 +1,28 @@
 {
-    "users":[
-       { 
-        "id": 1,
-        "name": "Frank",
-        "birthDate": "02-04-2012",
-        "skills":"React,Angular"
-       },
-       { 
-        "id": 2,
-        "name": "Ahmed",
-        "birthDate": "03-05-2022",
-        "skills":"HTML"
-       }
-    ]
-   
-
+  "users": [
+    {
+      "id": 1,
+      "name": "Frank",
+      "birthDate": "02-04-2012",
+      "skills": "React,Angular"
+    },
+    {
+      "id": 2,
+      "name": "Ahmed",
+      "birthDate": "03-05-2021",
+      "skills": "HTML"
+    },
+    {
+      "name": "Mina",
+      "birthDate": "2-3-2020",
+      "skills": "java,react,html",
+      "id": 3
+    },
+    {
+      "name": "asd",
+      "birthDate": "3-4-2005",
+      "skills": "react,html",
+      "id": 4
+    }
+  ]
 }

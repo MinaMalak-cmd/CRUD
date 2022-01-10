@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
-import { Link } from "react-router-dom";
+import { Link,Navigate, useNavigate } from "react-router-dom";
+import getAge from "../helpers/getAge";
 
 const UsersList = () => {
     const [Users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
+    const navigate = useNavigate();
+
     useEffect(() => {
       retrieveUsers();
     }, []);
@@ -25,71 +28,67 @@ const UsersList = () => {
       setCurrentUser(null);
       setCurrentIndex(-1);
     };
-  
+    const deleteUser = (id) => {
+        UserDataService.delete(id)
+          .then(response => {
+            console.log(response.data);
+            refreshList();
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    };
     const setActiveUser = (User, index) => {
       setCurrentUser(User);
       setCurrentIndex(index);
     };
+    const getById = (id) => {
+        
+      };
     return (
-        <React.Fragment>
-            <div className="list row">
-                <div className="col-md-6">
-                <h4>Users List</h4>
-        
-                <ul className="list-group">
-                    {Users &&
-                    Users.map((User, index) => (
-                        <li
-                        className={
-                            "list-group-item " + (index === currentIndex ? "active" : "")
-                        }
-                        onClick={() => setActiveUser(User, index)}
-                        key={index}
-                        >
-                        {User.title}
-                        </li>
-                    ))}
-                </ul>
-                </div>
-                <div className="col-md-6">
-                {currentUser ? (
-                    <div>
-                    <h4>User</h4>
-                    <div>
-                        <label>
-                        <strong>Title:</strong>
-                        </label>{" "}
-                        {currentUser.title}
-                    </div>
-                    <div>
-                        <label>
-                        <strong>Description:</strong>
-                        </label>{" "}
-                        {currentUser.description}
-                    </div>
-                    <div>
-                        <label>
-                        <strong>Status:</strong>
-                        </label>{" "}
-                        {currentUser.published ? "Published" : "Pending"}
-                    </div>
-        
-                    <Link
-                        to={"/Users/" + currentUser.id}
-                        className="badge badge-warning"
-                    >
-                        Edit
-                    </Link>
-                    </div>
-                ) : (
-                    <div>
-                    <br />
-                    <p>Please click on a User...</p>
-                    </div>
-                )}
-                </div>
+        <>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birth date</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Skills</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    { Users.length > 0 ? (
+                        Users.map(user => {
+                            const {id, name, birthDate, skills} = user;
+                            return (
+                                <tr key={id}>
+                                    <td scope="row">{id}</td>
+                                    <td>{name}</td>
+                                    <td>{birthDate}</td>
+                                    <td>{getAge(birthDate)}</td>
+                                    <td>{skills}</td>
+                                    <td>
+                                        <button type="button" className="btn btn-danger mx-3" onClick={()=>deleteUser(id)}>Delete</button>
+                                        <button type="button" className="btn btn-secondary mx-3">Edit</button>
+                                        <button type="button" className="btn btn-primary" onClick={()=> navigate(`/Users/${id}`)}>View Details</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    ) : (
+                        <tr>
+                            <td colSpan={4}>No users found</td>
+                        </tr>
+                    )   
+                    }
+                </tbody>
+            </table>
+            <div className="flex-center m-auto col-sm-12">
+              <button type="button" className="btn btn-primary my-3" onClick={()=> navigate('/add')}>Add new user</button>  
             </div>
-      </React.Fragment>
+        </>
     );
   };
   
