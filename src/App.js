@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/" element={<UsersList />} />
             <Route exact path="/Users" element={<UsersList />} />
             <Route path="/add" element={<AddUser />} />  
-            {/* <Route path="/Users/:id" element={<User />} />        */}
+            <Route path="/UpdateUser/:id" element={<User />} />
             <Route path="/Users/:id" element={<UserDetail />} />       
           </Routes>
     </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
 import getAge from "../helpers/getAge";
 import { useParams } from "react-router-dom";
+
 const UserDetail = props => {
     const initialUserState = {
         id: null,
@@ -12,7 +13,6 @@ const UserDetail = props => {
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
   const {name, birthDate, skills} = currentUser;
-
   const getUser = id => {
     UserDataService.get(id)
       .then(response => {

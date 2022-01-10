@@ -71,7 +71,7 @@ const UsersList = () => {
                                     <td>{skills}</td>
                                     <td>
                                         <button type="button" className="btn btn-danger mx-3" onClick={()=>deleteUser(id)}>Delete</button>
-                                        <button type="button" className="btn btn-secondary mx-3">Edit</button>
+                                        <button type="button" className="btn btn-secondary mx-3" onClick={()=> navigate(`/UpdateUser/${id}`)}>Edit</button>
                                         <button type="button" className="btn btn-primary" onClick={()=> navigate(`/Users/${id}`)}>View Details</button>
                                     </td>
                                 </tr>

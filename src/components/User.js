@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
+import { useParams } from "react-router-dom";
+import { Link,Navigate, useNavigate } from "react-router-dom";
 
 const User = props => {
   const initialUserState = {
@@ -8,6 +10,8 @@ const User = props => {
     birthDate: "",
     skills: ""
   };
+  const navigate = useNavigate();
+  const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
   const {id, name, birthDate, skills} = currentUser;
 
@@ -23,8 +27,8 @@ const User = props => {
   };
 
   useEffect(() => {
-    getUser(props.match.params.id);
-  }, [props.match.params.id]);
+    getUser(currentParams.id);
+  }, [currentParams.id]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -34,11 +38,10 @@ const User = props => {
   const updatePublished = status => {
     var data = {
       id: currentUser.id,
-      title: currentUser.title,
-      description: currentUser.description,
-      published: status
+      name: currentUser.name,
+      birthDate: currentUser.birthDate,
+      skills: currentUser.skills
     };
-    /*
     UserDataService.update(currentUser.id, data)
       .then(response => {
         setCurrentUser({ ...currentUser});
@@ -47,13 +50,13 @@ const User = props => {
       .catch(e => {
         console.log(e);
       });
-      */
   };
 
   const updateUser = () => {
     UserDataService.update(currentUser.id, currentUser)
       .then(response => {
         console.log(response.data);
+        navigate(`/`)
       })
       .catch(e => {
         console.log(e);
@@ -78,7 +81,9 @@ const User = props => {
             </div>
             <div className="form-group">
               <label htmlFor="birthDate">birthDate</label>
+              <br />
               <strong>Enter birthdate on the form of dd-mm-yyyy</strong>
+              <br />
               <input
                 type="text"
                 className="form-control"
@@ -90,7 +95,9 @@ const User = props => {
             </div>
             <div className="form-group">
               <label htmlFor="skills">skills</label>
+              <br />
               <strong>Enter skills on the form of comma separated skills</strong>
+              <br />
               <input
                 type="text"
                 className="form-control"
@@ -105,6 +112,7 @@ const User = props => {
             type="submit"
             className="badge badge-success"
             onClick={updateUser}
+            className="btn btn-primary" 
           >
             Update
           </button>

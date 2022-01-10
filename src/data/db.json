@@ -9,8 +9,8 @@
     {
       "id": 2,
       "name": "Ahmed",
-      "birthDate": "03-05-2021",
-      "skills": "HTML"
+      "birthDate": "03-07-2011",
+      "skills": "HTML,JS"
     },
     {
       "name": "Mina",
@@ -19,9 +19,9 @@
       "id": 3
     },
     {
-      "name": "asd",
-      "birthDate": "3-4-2005",
-      "skills": "react,html",
+      "name": "asdfoldkar",
+      "birthDate": "3-4-2000",
+      "skills": "react,html,IOS",
       "id": 4
     }
   ]
