@@ -31,70 +31,65 @@ const UsersList = () => {
       setCurrentIndex(index);
     };
     return (
-        <div className="list row">
-        <div className="col-md-6">
-          <h4>Users List</h4>
-  
-          <ul className="list-group">
-            {Users &&
-              Users.map((User, index) => (
-                <li
-                  className={
-                    "list-group-item " + (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => setActiveUser(User, index)}
-                  key={index}
-                >
-                  {User.title}
-                </li>
-              ))}
-          </ul>
-  
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={removeAllUsers}
-          >
-            Remove All
-          </button>
-        </div>
-        <div className="col-md-6">
-          {currentUser ? (
-            <div>
-              <h4>User</h4>
-              <div>
-                <label>
-                  <strong>Title:</strong>
-                </label>{" "}
-                {currentUser.title}
-              </div>
-              <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{" "}
-                {currentUser.description}
-              </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentUser.published ? "Published" : "Pending"}
-              </div>
-  
-              <Link
-                to={"/Users/" + currentUser.id}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
+        <React.Fragment>
+            <div className="list row">
+                <div className="col-md-6">
+                <h4>Users List</h4>
+        
+                <ul className="list-group">
+                    {Users &&
+                    Users.map((User, index) => (
+                        <li
+                        className={
+                            "list-group-item " + (index === currentIndex ? "active" : "")
+                        }
+                        onClick={() => setActiveUser(User, index)}
+                        key={index}
+                        >
+                        {User.title}
+                        </li>
+                    ))}
+                </ul>
+                </div>
+                <div className="col-md-6">
+                {currentUser ? (
+                    <div>
+                    <h4>User</h4>
+                    <div>
+                        <label>
+                        <strong>Title:</strong>
+                        </label>{" "}
+                        {currentUser.title}
+                    </div>
+                    <div>
+                        <label>
+                        <strong>Description:</strong>
+                        </label>{" "}
+                        {currentUser.description}
+                    </div>
+                    <div>
+                        <label>
+                        <strong>Status:</strong>
+                        </label>{" "}
+                        {currentUser.published ? "Published" : "Pending"}
+                    </div>
+        
+                    <Link
+                        to={"/Users/" + currentUser.id}
+                        className="badge badge-warning"
+                    >
+                        Edit
+                    </Link>
+                    </div>
+                ) : (
+                    <div>
+                    <br />
+                    <p>Please click on a User...</p>
+                    </div>
+                )}
+                </div>
             </div>
-          ) : (
-            <div>
-              <br />
-              <p>Please click on a User...</p>
-            </div>
-          )}
-        </div>
-      </div>
+      </React.Fragment>
     );
   };
   

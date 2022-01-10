@@ -1,9 +1,13 @@
 import './App.css';
-import { Switch, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 import AddUser from "./components/AddUser";
 import User from "./components/User";
 import UsersList from "./components/UsersList";
-
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,Link
+} from "react-router-dom";
 function App() {
   return (
     <div>
@@ -26,11 +30,20 @@ function App() {
     </nav>
 
     <div className="container mt-3">
-      <Switch>
-        <Route exact path={["/", "/Users"]} component={UsersList} />
-        <Route exact path="/add" component={AddUser} />
-        <Route path="/Users/:id" component={User} />
-      </Switch>
+      {/* <Routes>
+        <Route exact path={["/", "/Users"]} >
+           <UsersList />
+        </Route>
+         <Route exact path="/add" children={<AddUser />} />
+        <Route path="/Users/:id" children={<User />} /> 
+      </Routes> */}
+       {/* <Router> */}
+          <Routes>
+            <Route exact path="/" element={<UsersList />} />
+            <Route path="/add" element={<AddUser />} />  
+            <Route path="/Users/:id" element={<User />} />       
+          </Routes>
+        {/* </Router> */}
     </div>
   </div>
   );
