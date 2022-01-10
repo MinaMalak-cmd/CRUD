@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
-import { Link,Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import getAge from "../helpers/getAge";
 import getSkills from "../helpers/getSkills";
 
@@ -17,10 +17,9 @@ const UsersList = () => {
       UserDataService.getAll()
         .then(response => {
           setUsers(response.data);
-          console.log(response.data);
         })
         .catch(e => {
-          console.log(e);
+          //handle error logic here
         });
     };
     
@@ -32,20 +31,12 @@ const UsersList = () => {
     const deleteUser = (id) => {
         UserDataService.delete(id)
           .then(response => {
-            console.log(response.data);
             refreshList();
           })
           .catch(e => {
-            console.log(e);
+            //handle error logic here
           });
     };
-    const setActiveUser = (User, index) => {
-      setCurrentUser(User);
-      setCurrentIndex(index);
-    };
-    const getById = (id) => {
-        
-      };
     return (
         <>
             <table className="table">
@@ -73,7 +64,7 @@ const UsersList = () => {
                                     <td>
                                     {getSkills(skills)[1]?
                                     <>
-                                        <button type="button" class="bg-transparent " style={{border:"none"}} data-toggle="tooltip" data-placement="top" title={skills.replace(/,/g ," || ")}>
+                                        <button type="button" className="bg-transparent " style={{border:"none"}} data-toggle="tooltip" data-placement="top" title={skills.replace(/,/g ," || ")}>
                                             {getSkills(skills)[0]}
                                         </button>
                                     </>

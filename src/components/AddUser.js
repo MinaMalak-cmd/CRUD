@@ -34,10 +34,9 @@ const AddUser = () => {
           skills: response.data.skills
         });
         setSubmitted(true);
-        console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        //handle error logic here
       });
   };
 

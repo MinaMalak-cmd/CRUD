@@ -1,11 +1,10 @@
-import './App.css';
 import AddUser from "./components/AddUser";
 import User from "./components/User";
 import UsersList from "./components/UsersList";
 import UserDetail from "./components/UserDetail";
 import {
   Route,
-  Routes,Link
+  Routes
 } from "react-router-dom";
 function App() {
   return (
@@ -14,18 +13,6 @@ function App() {
       <a href="/Users" className="navbar-brand">
         Mina
       </a>
-      <div className="navbar-nav mr-auto">
-        {/* <li className="nav-item">
-          <Link to={"/Users"} className="nav-link">
-            Users
-          </Link>
-        </li> */}
-        {/* <li className="nav-item">
-          <Link to={"/add"} className="nav-link">
-            Add
-          </Link>
-        </li> */}
-      </div>
     </nav>
 
     <div className="container mt-3">

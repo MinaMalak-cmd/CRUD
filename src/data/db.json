@@ -13,15 +13,15 @@
       "skills": "HTML,JS"
     },
     {
-      "name": "Mina",
+      "name": "Mina2",
       "birthDate": "2-3-2020",
       "skills": "java,react,html",
       "id": 3
     },
     {
-      "name": "asdfoldkar",
-      "birthDate": "3-4-2000",
-      "skills": "react,html,IOS",
+      "name": "Eng",
+      "birthDate": "03-04-2021",
+      "skills": "html,js,react",
       "id": 4
     }
   ]

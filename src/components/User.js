@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
-import { useParams } from "react-router-dom";
-import { Link,Navigate, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const User = props => {
   const initialUserState = {
@@ -13,16 +12,13 @@ const User = props => {
   const navigate = useNavigate();
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
-  const {id, name, birthDate, skills} = currentUser;
-
   const getUser = id => {
     UserDataService.get(id)
       .then(response => {
         setCurrentUser(response.data);
-        console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        //handle error logic here
       });
   };
 
@@ -34,32 +30,13 @@ const User = props => {
     const { name, value } = event.target;
     setCurrentUser({ ...currentUser, [name]: value });
   };
-
-  const updatePublished = status => {
-    var data = {
-      id: currentUser.id,
-      name: currentUser.name,
-      birthDate: currentUser.birthDate,
-      skills: currentUser.skills
-    };
-    UserDataService.update(currentUser.id, data)
-      .then(response => {
-        setCurrentUser({ ...currentUser});
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
   const updateUser = () => {
     UserDataService.update(currentUser.id, currentUser)
-      .then(response => {
-        console.log(response.data);
+      .then(() => {
         navigate(`/`)
       })
       .catch(e => {
-        console.log(e);
+        //handle error logic here
       });
   };
   return (

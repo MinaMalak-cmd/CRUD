@@ -3,7 +3,7 @@ import UserDataService from "../services/UserService";
 import getAge from "../helpers/getAge";
 import { useParams } from "react-router-dom";
 
-const UserDetail = props => {
+const UserDetail = () => {
     const initialUserState = {
         id: null,
         name: "",
@@ -17,10 +17,9 @@ const UserDetail = props => {
     UserDataService.get(id)
       .then(response => {
         setCurrentUser(response.data);
-        console.log(response.data);
       })
       .catch(e => {
-        console.log(e);
+        //handle error logic here
       });
   };
 
