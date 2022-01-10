@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserDataService from "../services/UserService";
 import { Link,Navigate, useNavigate } from "react-router-dom";
 import getAge from "../helpers/getAge";
+import getSkills from "../helpers/getSkills";
 
 const UsersList = () => {
     const [Users, setUsers] = useState([]);
@@ -22,7 +23,7 @@ const UsersList = () => {
           console.log(e);
         });
     };
-  
+    
     const refreshList = () => {
       retrieveUsers();
       setCurrentUser(null);
@@ -62,13 +63,26 @@ const UsersList = () => {
                     { Users.length > 0 ? (
                         Users.map(user => {
                             const {id, name, birthDate, skills} = user;
+                            let pointerEvent = {pointerEvents:getSkills(skills)[1]?"none":"all"}
                             return (
                                 <tr key={id}>
                                     <td scope="row">{id}</td>
                                     <td>{name}</td>
                                     <td>{birthDate}</td>
                                     <td>{getAge(birthDate)}</td>
-                                    <td>{skills}</td>
+                                    <td>
+                                    {getSkills(skills)[1]?
+                                    <>
+                                        <button type="button" class="bg-transparent " style={{border:"none"}} data-toggle="tooltip" data-placement="top" title={skills.replace(/,/g ," || ")}>
+                                            {getSkills(skills)[0]}
+                                        </button>
+                                    </>
+                                    :
+                                    <>
+                                        {getSkills(skills)[0]}
+                                    </>
+                                    }
+                                        </td>
                                     <td>
                                         <button type="button" className="btn btn-danger mx-3" onClick={()=>deleteUser(id)}>Delete</button>
                                         <button type="button" className="btn btn-secondary mx-3" onClick={()=> navigate(`/UpdateUser/${id}`)}>Edit</button>
