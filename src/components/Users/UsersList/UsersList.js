@@ -12,7 +12,7 @@ const UsersList = () => {
   const navigate = useNavigate();
   const Lang = useContext(Language);
   const T = Lang.keys["Users"];
-  
+
   useEffect(() => {
     retrieveUsers();
   }, []);
@@ -45,12 +45,12 @@ const UsersList = () => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Birth date</th>
-            <th scope="col">Age</th>
-            <th scope="col">Skills</th>
-            <th scope="col">Actions</th>
+            <th scope="col">{T["1"]}</th>
+            <th scope="col">{T["2"]}</th>
+            <th scope="col">{T["3"]}</th>
+            <th scope="col">{T["4"]}</th>
+            <th scope="col">{T["5"]}</th>
+            <th scope="col">{T["6"]}</th>
           </tr>
         </thead>
         <tbody>
@@ -90,21 +90,21 @@ const UsersList = () => {
                       className="btn btn-danger mx-3"
                       onClick={() => deleteUser(id)}
                     >
-                      Delete
+                      {T["7"]}
                     </button>
                     <button
                       type="button"
                       className="btn btn-secondary mx-3"
                       onClick={() => navigate(`/UpdateUser/${id}`)}
                     >
-                      Edit
+                      {T["8"]}
                     </button>
                     <button
                       type="button"
                       className="btn btn-primary"
                       onClick={() => navigate(`/Users/${id}`)}
                     >
-                      View Details
+                      {T["9"]}
                     </button>
                   </td>
                 </tr>
@@ -112,7 +112,7 @@ const UsersList = () => {
             })
           ) : (
             <tr>
-              <td colSpan={4}>No users found</td>
+              <td colSpan={4}>{T["10"]}</td>
             </tr>
           )}
         </tbody>
@@ -123,7 +123,7 @@ const UsersList = () => {
           className="btn btn-primary my-3"
           onClick={() => navigate("/add")}
         >
-          Add new user
+          {T["11"]}
         </button>
       </div>
     </>
