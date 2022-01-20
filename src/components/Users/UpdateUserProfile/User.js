@@ -10,6 +10,7 @@ const User = () => {
     birthDate: "",
     skills: ""
   };
+  console.log("rendered")
   const Lang = useContext(Language);
   const T = Lang.keys["Users"];
   const navigate = useNavigate();
