@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import UserDataService from "../services/UserService";
+import UserDataService from "../../../services/UserService";
 import { useNavigate } from "react-router-dom";
-import getAge from "../helpers/getAge";
-import getSkills from "../helpers/getSkills";
+import getAge from "../../../helpers/getAge";
+import getSkills from "../../../helpers/getSkills";
 
 const UsersList = () => {
     const [Users, setUsers] = useState([]);

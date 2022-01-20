@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserDataService from "../services/UserService";
-import getAge from "../helpers/getAge";
+import UserDataService from "../../../services/UserService";
+import getAge from "../../../helpers/getAge";
 import { useParams } from "react-router-dom";
 
 const UserDetail = () => {

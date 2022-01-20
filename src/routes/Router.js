@@ -1,10 +1,9 @@
 import React from 'react';
 import { Route, Routes} from "react-router-dom";
-// import { AddUser,  User, UsersList, UserDetail } from '../components';
-import AddUser from "../components/AddUser";
-import User from "../components/User";
-import UsersList from "../components/UsersList";
-import UserDetail from "../components/UserDetail";
+import AddUser from "../components/AddUser/AddUser";
+import User from "../components/Users/UpdateUserProfile/User";
+import UsersList from "../components/Users/UsersList/UsersList";
+import UserDetail from "../components/Users/UserDetail/UserDetail";
 const Router = () => (
     <Routes>
         <Route exact path="/" element={<UsersList />} />

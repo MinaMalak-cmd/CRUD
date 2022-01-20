@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserDataService from "../services/UserService";
+import UserDataService from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
@@ -39,12 +39,6 @@ const AddUser = () => {
         //handle error logic here
       });
   };
-
-  const newUser = () => {
-    setUser(initialUserState);
-    setSubmitted(false);
-  };
-
   return (
       <div className="col-sm-12 d-flex flex-center">
         <div className="submit-form col-sm-6 m-auto">
