@@ -1,0 +1,23 @@
+{
+    "en":"العربية",
+    "name":"name",
+    "Users":{
+        "1":"ID",
+        "2":"Name",
+        "3":"Birth Date",
+        "4":"Age",
+        "5":"Skills",
+        "6":"Actions",
+        "7":"Delete",
+        "8":"Edit",
+        "9":"View Details",
+        "10":"No users found",
+        "11":"Add new user",
+        "12":"User",
+        "13":"Please Choose right user...",
+        "14":"Enter birthdate in format of dd-mm-yyyy",
+        "15":"Enter skills in format of comma separated skills",
+        "16":"Update",
+        "17":"Please click on a User..."
+    }
+}
