@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import UserDataService from "../../../services/UserService";
 import { useParams, useNavigate } from "react-router-dom";
+import Language from "../../../contexts/LanguageContext/LanguageContext.js";
 
 const User = () => {
   const initialUserState = {
@@ -9,6 +10,8 @@ const User = () => {
     birthDate: "",
     skills: ""
   };
+  const Lang = useContext(Language);
+  const T = Lang.keys["Users"];
   const navigate = useNavigate();
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
@@ -21,6 +24,7 @@ const User = () => {
         //handle error logic here
       });
   };
+ 
 
   useEffect(() => {
     getUser(currentParams.id);
@@ -43,10 +47,10 @@ const User = () => {
     <div>
       {currentUser ? (
         <div className="edit-form">
-          <h4>User</h4>
+          <h4>{T["12"]}</h4>
           <form>
             <div className="form-group">
-              <label htmlFor="name">name</label>
+              <label htmlFor="name">{T["2"]}</label>
               <input
                 type="text"
                 className="form-control"
@@ -57,9 +61,9 @@ const User = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="birthDate">birthDate</label>
+              <label htmlFor="birthDate">{T["3"]}</label>
               <br />
-              <strong>Enter birthdate on the form of dd-mm-yyyy</strong>
+              <strong>{T["14"]}</strong>
               <br />
               <input
                 type="text"
@@ -71,9 +75,9 @@ const User = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="skills">skills</label>
+              <label htmlFor="skills">{T["5"]}</label>
               <br />
-              <strong>Enter skills on the form of comma separated skills</strong>
+              <strong>{T["15"]}</strong>
               <br />
               <input
                 type="text"
@@ -91,13 +95,13 @@ const User = () => {
             onClick={updateUser}
             className="btn btn-primary" 
           >
-            Update
+            {T["16"]}
           </button>
         </div>
       ) : (
         <div>
           <br />
-          <p>Please click on a User...</p>
+          <p>{T["17"]}</p>
         </div>
       )}
     </div>

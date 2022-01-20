@@ -17,6 +17,12 @@
       "birthDate": "2-3-2020",
       "skills": "java,react,html",
       "id": 3
+    },
+    {
+      "name": "Ashraf",
+      "birthDate": "4-5-2020",
+      "skills": "CI/CD,Docker,AWS",
+      "id": 4
     }
   ]
 }
