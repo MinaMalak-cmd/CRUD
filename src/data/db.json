@@ -23,6 +23,12 @@
       "birthDate": "4-5-2020",
       "skills": "CI/CD,Docker,AWS",
       "id": 4
+    },
+    {
+      "name": "مينا ملاك",
+      "birthDate": "18-08-1996",
+      "skills": "java,react,html",
+      "id": 5
     }
   ]
 }

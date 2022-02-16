@@ -18,6 +18,9 @@
         "14":"Enter birthdate in format of dd-mm-yyyy",
         "15":"Enter skills in format of comma separated skills",
         "16":"Update",
-        "17":"Please click on a User..."
+        "17":"Please click on a User...",
+        "18":"You submitted successfully!",
+        "19":"Redirect to home",
+        "20":"Submit"
     }
 }

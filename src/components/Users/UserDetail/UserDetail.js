@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import UserDataService from "../../../services/UserService";
 import getAge from "../../../helpers/getAge";
 import { useParams } from "react-router-dom";
+import Language from "../../../contexts/LanguageContext/LanguageContext.js";
 
 const UserDetail = () => {
+  const Lang = useContext(Language);
+  const T = Lang.keys["Users"];
     const initialUserState = {
         id: null,
         name: "",
@@ -35,11 +38,11 @@ const UserDetail = () => {
           <table className="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Birth date</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Skills</th>
+                        <th scope="col">{T["1"]}</th>
+                        <th scope="col">{T["2"]}</th>
+                        <th scope="col">{T["3"]}</th>
+                        <th scope="col">{T["4"]}</th>
+                        <th scope="col">{T["5"]}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +59,7 @@ const UserDetail = () => {
       ) : (
         <div>
           <br />
-          <p>Please Choose right user...</p>
+          <p>{T["17"]}</p>
         </div>
       )}
     </div>

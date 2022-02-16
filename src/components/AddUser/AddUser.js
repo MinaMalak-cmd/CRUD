@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import UserDataService from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
+import Language from "../../contexts/LanguageContext/LanguageContext.js";
 
 const AddUser = () => {
   const initialUserState = {
@@ -12,6 +13,8 @@ const AddUser = () => {
   const [User, setUser] = useState(initialUserState);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
+  const Lang = useContext(Language);
+  const T = Lang.keys["Users"];
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -44,15 +47,15 @@ const AddUser = () => {
         <div className="submit-form col-sm-6 m-auto">
             {submitted ? (
             <div>
-                <h4>You submitted successfully!</h4>
+                <h4>{T["18"]}</h4>
                 <button className="btn btn-success" onClick={()=> navigate('/')}>
-                   Redirect to home
+                {T["19"]}
                 </button>
             </div>
             ) : (
             <div>
                 <div className="form-group">
-                <label htmlFor="name">name</label>
+                <label htmlFor="name">{T["2"]}</label>
                 <input
                     type="text"
                     className="form-control"
@@ -63,9 +66,9 @@ const AddUser = () => {
                 />
                 </div>
                 <div className="form-group">
-                <label htmlFor="birthDate">birthDate</label>
+                <label htmlFor="birthDate">{T["3"]}</label>
                 <br />
-                <strong>Enter birthdate on the form of dd-mm-yyyy</strong>
+                <strong>{T["14"]}</strong>
                 <br />
                 <input
                     type="text"
@@ -77,9 +80,9 @@ const AddUser = () => {
                 />
                 </div>
                 <div className="form-group">
-                <label htmlFor="skills">skills</label>
+                <label htmlFor="skills">{T["5"]}</label>
                 <br />
-                <strong>Enter skills on the form of comma separated skills</strong>
+                <strong>{T["15"]}</strong>
                 <br />
                 <input
                     type="text"
@@ -91,7 +94,7 @@ const AddUser = () => {
                 />
                 </div>
                 <button onClick={saveUser} className="btn btn-success">
-                   Submit
+                {T["20"]}
                 </button>
             </div>
             )}
