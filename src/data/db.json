@@ -29,6 +29,12 @@
       "birthDate": "18-08-1996",
       "skills": "java,react,html",
       "id": 5
+    },
+    {
+      "name": "Mohamed Ashraf",
+      "birthDate": "20-11-2012",
+      "skills": "Docker,kubernetes",
+      "id": 6
     }
   ]
 }
