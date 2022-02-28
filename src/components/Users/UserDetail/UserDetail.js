@@ -15,13 +15,13 @@ const UserDetail = () => {
     };
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
-  const {name, birthDate, skills} = currentUser;
-  const getUser = id => {
+  const { name, birthDate, skills } = currentUser;
+  const getUser = (id) => {
     UserDataService.get(id)
-      .then(response => {
+      .then((response) => {
         setCurrentUser(response.data);
       })
-      .catch(e => {
+      .catch((e) => {
         //handle error logic here
       });
   };
