@@ -7,8 +7,6 @@ import getSkills from "../../../helpers/getSkills";
 
 const UsersList = () => {
   const [Users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(-1);
   const navigate = useNavigate();
   const Lang = useContext(Language);
   const T = Lang.keys["Users"];
@@ -28,8 +26,6 @@ const UsersList = () => {
 
   const refreshList = () => {
     retrieveUsers();
-    setCurrentUser(null);
-    setCurrentIndex(-1);
   };
   const deleteUser = (id) => {
     UserDataService.delete(id)
