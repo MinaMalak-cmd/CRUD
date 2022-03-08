@@ -10,7 +10,7 @@ const UsersList = () => {
   const defaultUsers:Array<IUser>=[];
   const [Users, setUsers] = useState(defaultUsers);
   const navigate = useNavigate();
-  const Lang = useContext(Language);
+  const Lang:any = useContext(Language);
   const T = Lang?.keys["Users"];
 
   useEffect(() => {

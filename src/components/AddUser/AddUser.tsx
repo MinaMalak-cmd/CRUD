@@ -14,7 +14,7 @@ const AddUser = () => {
   const [User, setUser] = useState(initialUserState);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
-  const Lang = useContext(Language);
+  const Lang:any = useContext(Language);
   const T = Lang?.keys["Users"];
 
   const handleInputChange = (key:string,e:any) => {
