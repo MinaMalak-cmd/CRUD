@@ -8,7 +8,7 @@ const NavBar = () => {
     window.location.reload();
   };
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-dark">
+    <nav className="navbar navbar-expand navbar-dark bg-dark px-2">
       <a href="/Users" className="navbar-brand">
         Mina
       </a>
