@@ -10,12 +10,12 @@ const User = () => {
     birthDate: "",
     skills: ""
   };
-  const Lang = useContext(Language);
+  const Lang:any = useContext(Language);
   const T = Lang.keys["Users"];
   const navigate = useNavigate();
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
-  const getUser = id => {
+  const getUser = (id:number) => {
     UserDataService.get(id)
       .then(response => {
         setCurrentUser(response.data);
@@ -27,7 +27,8 @@ const User = () => {
  
 
   useEffect(() => {
-    getUser(currentParams.id);
+    if(currentParams.id !=undefined)
+        getUser(currentParams.id);
   }, [currentParams.id]);
 
   const handleInputChange = event => {

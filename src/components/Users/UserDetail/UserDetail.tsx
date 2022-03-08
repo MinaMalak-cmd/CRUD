@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Language from "../../../contexts/LanguageContext/LanguageContext.js";
 
 const UserDetail = () => {
-  const Lang = useContext(Language);
+  const Lang:any = useContext(Language);
   const T = Lang.keys["Users"];
     const initialUserState = {
         id: null,
@@ -16,7 +16,7 @@ const UserDetail = () => {
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
   const { name, birthDate, skills } = currentUser;
-  const getUser = (id) => {
+  const getUser = (id:string) => {
     UserDataService.get(id)
       .then((response) => {
         setCurrentUser(response.data);
@@ -27,7 +27,7 @@ const UserDetail = () => {
   };
 
   useEffect(() => {
-    getUser(currentParams.id);
+    if(currentParams.id!=undefined) getUser(currentParams.id);
   }, [currentParams.id]);
 
   return (

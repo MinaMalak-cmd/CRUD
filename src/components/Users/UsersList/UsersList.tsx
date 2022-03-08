@@ -57,7 +57,7 @@ const UsersList = () => {
             Users.map((user) => {
               const { id, name, birthDate, skills } = user;
               return (
-                <tr key={id.toString()}>
+                <tr key={id?.toString()}>
                   <td scope="row">{id}</td>
                   <td>{name}</td>
                   <td>{birthDate}</td>
