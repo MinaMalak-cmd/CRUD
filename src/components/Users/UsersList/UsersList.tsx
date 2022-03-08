@@ -4,12 +4,14 @@ import UserDataService from "../../../services/UserService";
 import { useNavigate } from "react-router-dom";
 import getAge from "../../../helpers/getAge";
 import getSkills from "../../../helpers/getSkills";
+import {IUser} from "../../../interfaces/IUser";
 
 const UsersList = () => {
-  const [Users, setUsers] = useState([]);
+  const defaultUsers:Array<IUser>=[];
+  const [Users, setUsers] = useState(defaultUsers);
   const navigate = useNavigate();
   const Lang = useContext(Language);
-  const T = Lang.keys["Users"];
+  const T = Lang?.keys["Users"];
 
   useEffect(() => {
     retrieveUsers();
@@ -17,7 +19,8 @@ const UsersList = () => {
   const retrieveUsers = () => {
     UserDataService.getAll()
       .then((response) => {
-        setUsers(response.data);
+        let data :Array<IUser>=response.data;
+        setUsers(data);
       })
       .catch((e) => {
         //handle error logic here
@@ -53,11 +56,8 @@ const UsersList = () => {
           {Users.length > 0 ? (
             Users.map((user) => {
               const { id, name, birthDate, skills } = user;
-              let pointerEvent = {
-                pointerEvents: getSkills(skills)[1] ? "none" : "all",
-              };
               return (
-                <tr key={id}>
+                <tr key={id.toString()}>
                   <td scope="row">{id}</td>
                   <td>{name}</td>
                   <td>{birthDate}</td>
