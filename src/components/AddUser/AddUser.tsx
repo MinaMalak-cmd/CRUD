@@ -17,9 +17,9 @@ const AddUser = () => {
   const Lang:ILang = useContext(Language);
   const T = Lang.keys["Users"];
 
-  const handleInputChange = (event:React.MouseEvent<HTMLButtonElement,MouseEvent>) => {
-    const { name, value } = event.target;
-    setUser({ ...User, [name]: value });
+  const handleInputChange = (key:string,e:any) => {
+    let {value} =e.target.value;
+    setUser({ ...User, [key]: value });
   };
 
   const saveUser = () => {
@@ -63,7 +63,7 @@ const AddUser = () => {
                     id="name"
                     name="name"
                     value={User.name}
-                    onChange={handleInputChange}
+                    onChange={(e)=>handleInputChange("name",e)}
                 />
                 </div>
                 <div className="form-group">
@@ -77,7 +77,7 @@ const AddUser = () => {
                     id="birthDate"
                     name="birthDate"
                     value={User.birthDate}
-                    onChange={handleInputChange}
+                    onChange={(e)=>handleInputChange("birthDate",e)}
                 />
                 </div>
                 <div className="form-group">
@@ -91,7 +91,7 @@ const AddUser = () => {
                     id="skills"
                     name="skills"
                     value={User.skills}
-                    onChange={handleInputChange}
+                    onChange={(e)=>handleInputChange("skills",e)}
                 />
                 </div>
                 <button onClick={saveUser} className="btn btn-success">

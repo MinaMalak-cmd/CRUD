@@ -27,7 +27,7 @@ const UsersList = () => {
   const refreshList = () => {
     retrieveUsers();
   };
-  const deleteUser = (id) => {
+  const deleteUser = (id:Number) => {
     UserDataService.delete(id)
       .then((response) => {
         refreshList();
