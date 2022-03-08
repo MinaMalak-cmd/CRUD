@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Language from "../../../contexts/LanguageContext/LanguageContext.js";
+import Language from "../../../contexts/LanguageContext/LanguageContext";
 import UserDataService from "../../../services/UserService";
 import { useNavigate } from "react-router-dom";
 import getAge from "../../../helpers/getAge";

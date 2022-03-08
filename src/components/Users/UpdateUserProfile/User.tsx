@@ -1,7 +1,7 @@
 import React, { useState, useEffect,useContext } from "react";
 import UserDataService from "../../../services/UserService";
 import { useParams, useNavigate } from "react-router-dom";
-import Language from "../../../contexts/LanguageContext/LanguageContext.js";
+import Language from "../../../contexts/LanguageContext/LanguageContext";
 
 const User = () => {
   const initialUserState = {

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import UserDataService from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
-import Language from "../../contexts/LanguageContext/LanguageContext.js";
+import Language from "../../contexts/LanguageContext/LanguageContext";
+import {ILang} from "../../interfaces/ILang";
 
 const AddUser = () => {
   const initialUserState = {
@@ -13,10 +14,10 @@ const AddUser = () => {
   const [User, setUser] = useState(initialUserState);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
-  const Lang = useContext(Language);
+  const Lang:ILang = useContext(Language);
   const T = Lang.keys["Users"];
 
-  const handleInputChange = event => {
+  const handleInputChange = (event:React.MouseEvent<HTMLButtonElement,MouseEvent>) => {
     const { name, value } = event.target;
     setUser({ ...User, [name]: value });
   };
