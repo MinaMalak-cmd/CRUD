@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Frank",
-      "birthDate": "02-04-2013",
-      "skills": "React,Angular"
-    },
-    {
       "id": 2,
       "name": "Ahmed2",
       "birthDate": "03-07-2011",
@@ -25,10 +19,22 @@
       "id": 4
     },
     {
+      "name": "Mohamed Ashraf",
+      "birthDate": "20-11-2012",
+      "skills": "Docker,kubernetes",
+      "id": 6
+    },
+    {
+      "name": "Mina malak",
+      "birthDate": "20-10-2018",
+      "skills": "js,es",
+      "id": 7
+    },
+    {
       "name": "مينا ملاك",
-      "birthDate": "18-08-1996",
-      "skills": "java,react,html",
-      "id": 5
+      "birthDate": "18-08-2019",
+      "skills": "js,css,html",
+      "id": 8
     }
   ]
 }

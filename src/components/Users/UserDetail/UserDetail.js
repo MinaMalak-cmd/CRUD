@@ -25,14 +25,14 @@ const UserDetail = () => {
         //handle error logic here
       });
   };
-
+  let currentId =currentParams.id;
   useEffect(() => {
-    getUser(currentParams.id);
-  }, [currentParams.id]);
+    getUser(currentId);
+  }, [currentId]);
 
   return (
     <div>
-      {currentParams.id ? (
+      {currentId ? (
         <div className="edit-form">
           <h4>User</h4>
           <table className="table">
@@ -47,7 +47,7 @@ const UserDetail = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="row">{currentParams.id}</td>
+                        <td scope="row">{currentId}</td>
                         <td>{name}</td>
                         <td>{birthDate}</td>
                         <td>{getAge(birthDate)}</td>
