@@ -15,7 +15,7 @@ const User = () => {
   const navigate = useNavigate();
   const currentParams = useParams();
   const [currentUser, setCurrentUser] = useState(initialUserState);
-  const getUser = (id:number) => {
+  const getUser = (id:string) => {
     UserDataService.get(id)
       .then(response => {
         setCurrentUser(response.data);
@@ -31,7 +31,7 @@ const User = () => {
         getUser(currentParams.id);
   }, [currentParams.id]);
 
-  const handleInputChange = event => {
+  const handleInputChange = (event:any) => {
     const { name, value } = event.target;
     setCurrentUser({ ...currentUser, [name]: value });
   };
@@ -92,9 +92,8 @@ const User = () => {
           </form>      
           <button
             type="submit"
-            className="badge badge-success"
+            className="badge badge-success btn btn-primary"
             onClick={updateUser}
-            className="btn btn-primary" 
           >
             {T["16"]}
           </button>
